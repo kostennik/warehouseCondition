@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.20.0/apexcharts.min.js" integrity="sha512-xX8bVi53lF1vh1iBD/FEwHzRr6At1LLENpwcLOTYjPinKB3nCwxb5FT8fIf0N18CDvw7QBavzh5mzO3XOhfMSg==" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="js/script.js"></script>
+
+  <title>Index</title>
+</head>
+<body>
+
+  <header>
+    <div id="header_rack_available">
+      <div>
+        <p>Dostępne na półce</p>
+        <span>Sortuj według:</span>
+        <input id="sort_by_product" type="button" value="produktu">
+        <input id="sort_by_brand" type="button" value="marki">
+        <input id="sort_by_localization" type="button" value="lokalizacji">
+      </div>
+    </div>
+
+    <div id="header_store_available">
+      <div>
+        <p>Dostępne w magazynie</p>
+        <span>Opcje:</span>
+        <input id="hide_inaccessible" type="button" value="Ukryj niedostępne">
+        <input id="show_quantity" type="button" value="Pokaż ilość">
+      </div>
+    </div>
+  </header>
+
+  <div id="main_content">
+    <div id="chart_left"></div>
+    <div id="chart_right"></div>
+  </div>
+
+<!--  <footer>-->
+<!--    <p>Footer</p>-->
+<!--  </footer>-->
+
+</body>
+</html>

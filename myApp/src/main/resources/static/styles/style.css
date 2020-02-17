@@ -1,0 +1,54 @@
+header{
+    clear: left;
+    width: 100%;
+    /*height: 100px;*/
+    background-color: darkgrey;
+
+}
+header #header_rack_available{
+    float: left;
+    width: 50%;
+    text-align: left;
+    /*background-color: cornflowerblue;*/
+
+}
+header #header_rack_available div{
+    margin: 0px 0px 20px 30px;
+}
+header #header_store_available div{
+    margin: 0px 30px 20px 0px;
+
+}
+header p{
+    font-size: 1.5em;
+}
+header #header_store_available{
+    float: right;
+    width: 50%;
+    text-align: right;
+    /*background-color: crimson;*/
+}
+
+#main_content{
+    /*border: black solid thin;*/
+    width: 100%;
+    /*height: 500px;*/
+}
+
+#main_content #chart_left{
+    float: left;
+    width: 50%;
+}
+#main_content #chart_right{
+    float: right;
+    width: 50%;
+}
+
+
+footer{
+    clear: left;
+    width: 100%;
+    height: 50px;
+    background-color: chocolate;
+
+}
