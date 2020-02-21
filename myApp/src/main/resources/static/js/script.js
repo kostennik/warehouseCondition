@@ -1,21 +1,26 @@
 window.onload = unit;
-let productsName = [
-    "K2 Roton G167",
-    "TRW Brake Cleaner V45",
-    "Boll BOLL ŚRODEK OCHRONY KAROSERII",
-    "LIQUI MOLI LONGTIME HIGH TECH 5W-30",
-    "K2 Brake Cleaner 600ml W105",
-    "Liqui Moli DODATEK DO BENZYNY 2642",
-    "LuK Zestaw sprzęgła 450 0015",
-    "Liqui Moli GTL 12",
-    "LuK Zestaw sprzęgła 600 0017"
-];
-let productLeftStatus = [10, 50, 60, 62, 90, 190, 400, 560, 1200];
-let productRightStatus = [1500, 1400, 650, 600, 550, 500, 1100, 1150, 950];
+
+//test within database
+// let productsName = [
+//     "K2 Roton G167",
+//     "TRW Brake Cleaner V45",
+//     "Boll BOLL ŚRODEK OCHRONY KAROSERII",
+//     "LIQUI MOLI LONGTIME HIGH TECH 5W-30",
+//     "K2 Brake Cleaner 600ml W105",
+//     "Liqui Moli DODATEK DO BENZYNY 2642",
+//     "LuK Zestaw sprzęgła 450 0015",
+//     "Liqui Moli GTL 12",
+//     "LuK Zestaw sprzęgła 600 0017"
+// ];
+// let productLeftStatus = [10, 50, 60, 62, 90, 190, 400, 560, 1200];
+// let productRightStatus = [1500, 1400, 650, 600, 550, 500, 1100, 1150, 950];
+
+let productNames = [];
+let productLeftStatus = [];
+let productRightStatus = [];
 
 function unit() {
-    leftChart();
-    rightChart();
+    getData();
 
     document.getElementById("sort_by_product").onclick = function () {
         alert("sort by product");
@@ -40,7 +45,28 @@ function unit() {
 
 }
 
-function leftChart() {
+function getData(){
+    fetch('/showAllByName')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+
+            for (let i = 0; i < data.length; i++) {
+                productNames.push(data[i].brandName + " " + data[i].productCode + " " + data[i].productName);
+                productLeftStatus.push(data[i].quantityOnRack);
+                productRightStatus.push(data[i].quantityOnStorehouse);
+            }
+
+            fillLeftChart(productNames, productLeftStatus);
+            fillRightChart(productNames, productRightStatus);
+        });
+}
+
+
+
+function fillLeftChart(productsName, productLeftStatus) {
     let options = {
         series: [{
             data: productLeftStatus,
@@ -115,7 +141,7 @@ function leftChart() {
     chart.render();
 }
 
-function rightChart() {
+function fillRightChart(productsName, productRightStatus) {
     let options = {
         series: [{
             data: productRightStatus,
